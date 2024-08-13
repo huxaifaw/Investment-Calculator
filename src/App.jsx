@@ -23,9 +23,12 @@ function App() {
       
   }
 
+  const isValidDuration = userInput.duration >= 1;
+
   return (<>
     <UserInput userInput={userInput} onChange={handleChange}/>
-    <Results input={userInput}/>
+    {!isValidDuration && (<p className='center'>Please enter positive duration value</p>)}
+    {isValidDuration && <Results input={userInput}/>}
   </>); 
 }
 
